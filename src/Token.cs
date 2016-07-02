@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace objectivekaleidoscope
+namespace ObjKaleidoscope
 {
     /// <summary>
     /// An enumeration of possible token kinds.
@@ -125,6 +125,27 @@ namespace objectivekaleidoscope
         /// represents.
         /// </summary>
         public string Contents { get; private set; }
+
+        /// <summary>
+        /// Gets a token that represents the end-of-file
+        /// marker.
+        /// </summary>
+        public static Token EndOfFile
+        {
+            get { return new Token(TokenKind.EndOfFile, ""); }
+        }
+
+        /// <summary>
+        /// Tests if the given token kind is used for trivia
+        /// tokens: tokens that are important to the lexing
+        /// process, but can be safely ignored afterward.
+        /// Whitespace and comments are trivia.
+        /// </summary>
+        public static bool IsTrivia(TokenKind Kind)
+        {
+            return Kind == TokenKind.Whitespace
+                || Kind == TokenKind.Comment;
+        }
     }
 }
 
