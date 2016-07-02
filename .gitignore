@@ -1,0 +1,9 @@
+# Binaries
+bin/
+obj/
+
+# Packages
+packages/
+
+# MonoDevelop user preferences
+*.userprefs
