@@ -71,6 +71,10 @@ namespace ObjKaleidoscope
         /// </summary>
         Comma,
         /// <summary>
+        /// A '.' string.
+        /// </summary>
+        Dot,
+        /// <summary>
         /// An '=' string.
         /// </summary>
         Eq
@@ -117,6 +121,7 @@ namespace ObjKaleidoscope
                 { ";", TokenKind.Semicolon },
                 { "=", TokenKind.Eq },
                 { ",", TokenKind.Comma },
+                { ".", TokenKind.Dot },
                 { "(", TokenKind.LeftParen },
                 { ")", TokenKind.RightParen }
             };
