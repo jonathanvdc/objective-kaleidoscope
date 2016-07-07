@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ObjKaleidoscope
 {
@@ -125,6 +126,33 @@ namespace ObjKaleidoscope
         /// represents.
         /// </summary>
         public string Contents { get; private set; }
+
+        static Token()
+        {
+            keywordMap = new Dictionary<string, TokenKind>()
+            {
+                { "def", TokenKind.DefKeyword },
+                { "var", TokenKind.VarKeyword },
+                { "class", TokenKind.ClassKeyword }
+            };
+        }
+
+        // A dictionary that maps strings to the keyword token
+        // types they correspond to.
+        private static Dictionary<string, TokenKind> keywordMap;
+
+        /// <summary>
+        /// Classifies the given character string as an identifier
+        /// or a keyword.
+        /// </summary>
+        public static TokenKind ClassifyIdentifierOrKeyword(string Value)
+        {
+            TokenKind result;
+            if (keywordMap.TryGetValue(Value, out result))
+                return result;
+            else
+                return TokenKind.Identifier;
+        }
 
         /// <summary>
         /// Gets a token that represents the end-of-file
