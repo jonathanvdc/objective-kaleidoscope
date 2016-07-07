@@ -30,6 +30,10 @@ namespace ObjKaleidoscope
         /// </summary>
         Identifier,
         /// <summary>
+        /// An operator.
+        /// </summary>
+        Operator,
+        /// <summary>
         /// An integer number.
         /// </summary>
         Integer,
@@ -51,57 +55,25 @@ namespace ObjKaleidoscope
         /// </summary>
         ClassKeyword,
         /// <summary>
-        /// A ':' string.
+        /// A '(' string.
         /// </summary>
-        Colon,
+        LeftParen,
+        /// <summary>
+        /// A ')' string.
+        /// </summary>
+        RightParen,
+        /// <summary>
+        /// A ';' string.
+        /// </summary>
+        Semicolon,
+        /// <summary>
+        /// A ',' string.
+        /// </summary>
+        Comma,
         /// <summary>
         /// An '=' string.
         /// </summary>
-        Eq,
-        /// <summary>
-        /// A '+' string.
-        /// </summary>
-        Plus,
-        /// <summary>
-        /// A '-' string.
-        /// </summary>
-        Minus,
-        /// <summary>
-        /// An '*' string.
-        /// </summary>
-        Asterisk,
-        /// <summary>
-        /// A '/' string.
-        /// </summary>
-        Slash,
-        /// <summary>
-        /// A '!' string.
-        /// </summary>
-        Not,
-        /// <summary>
-        /// An '==' string. 
-        /// </summary>
-        EqEq,
-        /// <summary>
-        /// A '!=' string.
-        /// </summary>
-        NotEq,
-        /// <summary>
-        /// A '&gt;' string.
-        /// </summary>
-        Gt,
-        /// <summary>
-        /// A '&lt;' string.
-        /// </summary>
-        Lt,
-        /// <summary>
-        /// A '&gt;=' string.
-        /// </summary>
-        GtEq,
-        /// <summary>
-        /// A '&lt;=' string.
-        /// </summary>
-        LtEq
+        Eq
     }
 
     /// <summary>
@@ -135,11 +107,23 @@ namespace ObjKaleidoscope
                 { "var", TokenKind.VarKeyword },
                 { "class", TokenKind.ClassKeyword }
             };
+            opMap = new Dictionary<string, TokenKind>()
+            {
+                { ";", TokenKind.Semicolon },
+                { "=", TokenKind.Eq },
+                { ",", TokenKind.Comma },
+                { "(", TokenKind.LeftParen },
+                { ")", TokenKind.RightParen }
+            };
         }
 
         // A dictionary that maps strings to the keyword token
-        // types they correspond to.
+        // kinds they correspond to.
         private static Dictionary<string, TokenKind> keywordMap;
+
+        // A dictionary that maps strings to the operator token
+        // kinds they correspond to.
+        private static Dictionary<string, TokenKind> opMap;
 
         /// <summary>
         /// Classifies the given character string as an identifier
@@ -152,6 +136,19 @@ namespace ObjKaleidoscope
                 return result;
             else
                 return TokenKind.Identifier;
+        }
+
+        /// <summary>
+        /// Classifies the given character string as an operator 
+        /// or a special token.
+        /// </summary>
+        public static TokenKind ClassifyOperatorOrSpecial(string Value)
+        {
+            TokenKind result;
+            if (opMap.TryGetValue(Value, out result))
+                return result;
+            else
+                return TokenKind.Operator;
         }
 
         /// <summary>

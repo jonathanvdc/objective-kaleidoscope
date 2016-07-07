@@ -137,6 +137,19 @@ namespace ObjKaleidoscope
                     TokenKind.Integer, first);
             }
 
+            // We can also try to parse operators
+            string opString = PeekWhile(0, c => 
+                !char.IsLetterOrDigit(c) 
+                && !char.IsControl(c) 
+                && !char.IsWhiteSpace(c));
+
+            if (opString.Length > 0)
+            {
+                return new Token(
+                    Token.ClassifyOperatorOrSpecial(opString),
+                    opString);
+            }
+
             return new Token(TokenKind.Undefined, PeekString(1));
         }
 
