@@ -68,11 +68,21 @@ namespace ObjKaleidoscope
 
         /// <summary>
         /// Determines whether this lexer instance can read the 
-        /// specified number of characters from the source string.
+        /// specified number of characters from the source document,
+        /// starting at the given offset from the current position.
+        /// </summary>
+        private bool CanReadString(int Offset, int Count)
+        {
+            return pos + Offset + Count <= source.Length;
+        }
+
+        /// <summary>
+        /// Determines whether this lexer instance can read the 
+        /// specified number of characters from the source document.
         /// </summary>
         private bool CanReadString(int Count)
         {
-            return pos + Count <= source.Length;
+            return CanReadString(0, Count);
         }
 
         /// <summary>
@@ -91,7 +101,13 @@ namespace ObjKaleidoscope
                     TokenKind.Whitespace, 
                     PeekWhile(0, char.IsWhiteSpace));
 
-            // Next, classify identifiers and keywords
+            // Look for comments
+            if (PeekCharacter() == '#')
+                return new Token(
+                    TokenKind.Comment, 
+                    PeekWhile(0, c => c != '\n' && c != '\r')); 
+
+            // Classify identifiers and keywords
             if (char.IsLetter(PeekCharacter()))
             {
                 string ident = PeekWhile(0, char.IsLetterOrDigit);
@@ -99,7 +115,27 @@ namespace ObjKaleidoscope
                     Token.ClassifyIdentifierOrKeyword(ident), ident);
             }
 
-
+            // Parse integer/double literals
+            if (char.IsDigit(PeekCharacter()) || PeekCharacter() == '.')
+            {
+                // Integer literals: [0-9]+
+                // Double literals: [0-9]*\.[0-9]+
+                string first = PeekWhile(0, char.IsDigit);
+                if (CanReadString(first.Length, 1)
+                    && PeekCharacter(first.Length) == '.')
+                {
+                    string second = PeekWhile(
+                        first.Length + 1, char.IsDigit);
+                    if (second.Length > 0)
+                    {
+                        return new Token(
+                            TokenKind.Float64,
+                            first + "." + second);
+                    }
+                }
+                return new Token(
+                    TokenKind.Integer, first);
+            }
 
             return new Token(TokenKind.Undefined, PeekString(1));
         }
