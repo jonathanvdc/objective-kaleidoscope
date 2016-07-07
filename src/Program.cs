@@ -6,7 +6,19 @@ namespace ObjKaleidoscope
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string line;
+            Console.Write("> ");
+            while ((line = Console.ReadLine()) != null)
+            {
+                var lexer = new Lexer(line);
+                while (lexer.Peek().Kind != TokenKind.EndOfFile)
+                {
+                    Console.Write(lexer.Read());
+                    Console.Write(", ");
+                }
+                Console.WriteLine();
+                Console.Write("> ");    
+            }
         }
     }
 }

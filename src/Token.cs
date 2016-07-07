@@ -99,6 +99,11 @@ namespace ObjKaleidoscope
         /// </summary>
         public string Contents { get; private set; }
 
+        public override string ToString()
+        {
+            return "(" + Kind + ", \"" + Contents + "\")";
+        }
+
         static Token()
         {
             keywordMap = new Dictionary<string, TokenKind>()

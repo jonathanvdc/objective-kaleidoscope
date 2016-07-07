@@ -7,7 +7,8 @@ namespace ObjKaleidoscope
     {
         public Lexer(string Source)
         {
-            pos = 0;
+            this.source = Source;
+            this.pos = 0;
         }
 
         private string source;
@@ -49,7 +50,7 @@ namespace ObjKaleidoscope
         {
             int i = pos + Offset;
             while (i < source.Length
-               && char.IsWhiteSpace(source[i]))
+               && Predicate(source[i]))
             {
                 i++;
             }
