@@ -134,8 +134,11 @@ namespace ObjKaleidoscope
                             first + "." + second);
                     }
                 }
-                return new Token(
-                    TokenKind.Integer, first);
+                if (first.Length > 0)
+                {
+                    return new Token(
+                        TokenKind.Integer, first);
+                }
             }
 
             // We can also try to parse operators
