@@ -168,6 +168,22 @@ namespace ObjKaleidoscope
             Advance(result.Contents.Length);
             return result;
         }
+
+        /// <summary>
+        /// Reads a single token from the source document, 
+        /// and updates the current position. The token's
+        /// kind must match the given token kind.
+        /// </summary>
+        public Token Read(TokenKind Kind)
+        {
+            var result = Read();
+            if (result.Kind != Kind)
+                throw new Exception(
+                    "Expected a token of type '" + Kind + 
+                    "', got '" + result.Contents + "'.");
+
+            return result;
+        }
     }
 }
 
