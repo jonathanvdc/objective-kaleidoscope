@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The [Kaleidoscope tutorials](http://llvm.org/docs/tutorial/) are an series of awesome tutorials that show how easy it is to implement a custom programming language with LLVM. Since Flame is a compiler framework much like LLVM, but for garbage-collected, object-oriented programming languages, I thought that Flame should have a similar tutorial, but for a strongly-typed, object-oriented dialect of the original Kaleidoscope language: Objective-Kaleidoscope.
+The [Kaleidoscope tutorials](http://llvm.org/docs/tutorial/) are a series of awesome tutorials that show how easy it is to implement a custom programming language with LLVM. Since Flame is a compiler framework much like LLVM, but for garbage-collected, object-oriented programming languages, I thought that Flame should have a similar tutorial, but for a strongly-typed, object-oriented dialect of the original Kaleidoscope language: Objective-Kaleidoscope.
 
 We're going to build an ahead-of-time compiler for this programming language, because that's what Flame does. Throughout this tutorial, I'll assume you know the C# programming language, and have an IDE that can create projects and can install NuGet packages for you. Having some previous experience with compiler implementation is helpful, but shouldn't be necessary.
 
