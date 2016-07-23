@@ -39,6 +39,8 @@ Garbage in, garbage out. Finding out that these tokens make no sense in this ord
 
 ### Implementation
 
+#### Data structures
+
 The implementation of the lexical analysis pass is split across two source files: [`Token.cs`](https://github.com/jonathanvdc/objective-kaleidoscope/blob/master/src/Token.cs) defines supporting data structures &ndash; `enum TokenKind` and `class Token` &ndash; while [`Lexer.cs`](https://github.com/jonathanvdc/objective-kaleidoscope/blob/master/src/Lexer.cs) implements the lexer itself.
 
 Let's take a look at some of the highlights from `Token.cs`. [`TokenKind`](https://github.com/jonathanvdc/objective-kaleidoscope/blob/master/src/Token.cs#L9) is a simple enumeration of all possible token kinds. There are three main categories of token kinds defined here:
@@ -81,6 +83,8 @@ public sealed class Token
     // ... (static members, omitted here)
 }
 ```
+
+#### Lexer
 
 Now, let's take a look at [`Lexer.cs`](https://github.com/jonathanvdc/objective-kaleidoscope/blob/master/src/Lexer.cs). A [`Lexer`](https://github.com/jonathanvdc/objective-kaleidoscope/blob/master/src/Lexer.cs) instance consists of two bits of information: the entirety of the source document, as a character string, and an integer index that refers to a position in this `string`: the starting position of the next token to read.
 
@@ -137,3 +141,38 @@ public Token Read(TokenKind Kind)
     return result;
 }
 ```
+
+#### Driver program
+
+We can now write a simple driver program that applies the lexer to the input we give it, line-by-line.
+
+```cs
+using System;
+
+namespace ObjKaleidoscope
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            string line;
+            Console.Write("> ");
+            while ((line = Console.ReadLine()) != null)
+            {
+                var lexer = new Lexer(line);
+                while (lexer.Peek().Kind != TokenKind.EndOfFile)
+                {
+                    Console.Write(lexer.Read());
+                    Console.Write(", ");
+                }
+                Console.WriteLine();
+                Console.Write("> ");    
+            }
+        }
+    }
+}
+```
+
+### Conclusion
+
+Now that we've written a fully-functional lexer, we can get started on writing the parser, which will take the lexer's output, and use that to build a parse tree.
