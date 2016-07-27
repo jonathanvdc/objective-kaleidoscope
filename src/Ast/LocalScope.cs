@@ -2,7 +2,7 @@
 
 namespace ObjKaleidoscope.Ast
 {
-    public class LocalScope
+    public sealed class LocalScope
     {
         public LocalScope()
         {

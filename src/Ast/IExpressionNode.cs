@@ -4,7 +4,7 @@ using Flame.Compiler;
 namespace ObjKaleidoscope.Ast
 {
     /// <summary>
-    /// A base class for expression AST nodes.
+    /// A common interface for expression AST nodes.
     /// </summary>
     public interface IExpressionNode
     {
@@ -15,9 +15,9 @@ namespace ObjKaleidoscope.Ast
         /// The expression's enclosing local scope.
         /// </param>
         /// <returns>
-        /// A Flame IR expression node.
+        /// A Flame IR type, expression or variable.
         /// </returns>
-        IExpression Analyze(LocalScope Scope);
+        TypeOrExpression Analyze(LocalScope Scope);
     }
 }
 
