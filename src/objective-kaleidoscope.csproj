@@ -136,15 +136,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="Lexer.cs" />
-    <Compile Include="Ast\LocalScope.cs" />
     <Compile Include="Ast\IExpressionNode.cs" />
-    <Compile Include="Ast\TypeOrExpression.cs" />
     <Compile Include="Ast\ParameterNode.cs" />
     <Compile Include="Ast\FunctionNode.cs" />
+    <Compile Include="Semantics\LocalScope.cs" />
+    <Compile Include="Semantics\IValue.cs" />
+    <Compile Include="Semantics\TypeOrValue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Ast\" />
+    <Folder Include="Semantics\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

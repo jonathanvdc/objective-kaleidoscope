@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjKaleidoscope.Ast
+namespace ObjKaleidoscope.Semantics
 {
     public sealed class LocalScope
     {

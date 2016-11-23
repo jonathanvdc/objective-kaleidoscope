@@ -1,5 +1,6 @@
 ﻿using System;
 using Flame.Compiler;
+using ObjKaleidoscope.Semantics;
 
 namespace ObjKaleidoscope.Ast
 {
@@ -15,9 +16,9 @@ namespace ObjKaleidoscope.Ast
         /// The expression's enclosing local scope.
         /// </param>
         /// <returns>
-        /// A Flame IR type, expression or variable.
+        /// A Flame IR type or a value.
         /// </returns>
-        TypeOrExpression Analyze(LocalScope Scope);
+        TypeOrValue Analyze(LocalScope Scope);
     }
 }
 

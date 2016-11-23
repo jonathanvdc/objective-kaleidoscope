@@ -1,6 +1,7 @@
 ﻿using System;
 using Flame;
 using Flame.Build;
+using ObjKaleidoscope.Semantics;
 
 namespace ObjKaleidoscope.Ast
 {
