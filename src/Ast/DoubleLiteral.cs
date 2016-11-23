@@ -5,7 +5,7 @@ using Flame.Compiler.Expressions;
 namespace ObjKaleidoscope.Ast
 {
     /// <summary>
-    /// An double literal AST node.
+    /// A double literal AST node.
     /// </summary>
     public class DoubleLiteral : IExpressionNode
     {
