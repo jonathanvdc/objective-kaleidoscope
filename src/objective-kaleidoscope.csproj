@@ -142,6 +142,8 @@
     <Compile Include="Semantics\LocalScope.cs" />
     <Compile Include="Semantics\IValue.cs" />
     <Compile Include="Semantics\TypeOrValue.cs" />
+    <Compile Include="Ast\IntLiteral.cs" />
+    <Compile Include="Semantics\ExpressionValue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -17,6 +17,9 @@ namespace ObjKaleidoscope.Semantics
         public TypeOrValue(IValue Value)
             : this(Value, null)
         { } 
+        public TypeOrValue(IExpression Value)
+            : this(new ExpressionValue(Value), null)
+        { } 
         public TypeOrValue(IType Type)
             : this(null, Type)
         { }
