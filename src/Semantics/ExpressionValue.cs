@@ -21,13 +21,13 @@ namespace ObjKaleidoscope.Semantics
         public IExpression GetExpression { get; private set; }
 
         /// <inheritdoc/>
-        public IExpression CreateGetExpression(LocalScope Scope)
+        public IExpression CreateGetExpression(ILocalScope Scope)
         {
             return GetExpression;
         }
 
         /// <inheritdoc/>
-        public IStatement CreateSetStatement(IExpression Value, LocalScope Scope)
+        public IStatement CreateSetStatement(IExpression Value, ILocalScope Scope)
         {
             throw new Exception("cannot store a value here");
         }

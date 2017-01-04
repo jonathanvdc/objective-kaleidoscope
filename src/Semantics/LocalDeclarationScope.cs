@@ -8,9 +8,9 @@ namespace ObjKaleidoscope.Semantics
     /// A local scope implementation for 
     /// local variable declarations.
     /// </summary>
-    public sealed class LocalDeclScope : ILocalScope
+    public sealed class LocalDeclarationScope : ILocalScope
     {
-        public LocalDeclScope(
+        public LocalDeclarationScope(
             ILocalScope Parent, 
             string VariableName, IValue Variable)
         {

@@ -50,7 +50,7 @@ namespace ObjKaleidoscope.Semantics
         /// Checks that the value is non-null, and then creates
         /// a get-expression.
         /// </summary>
-        public IExpression CreateGetExpression(LocalScope Scope)
+        public IExpression CreateGetExpression(ILocalScope Scope)
         {
             if (Value == null)
                 throw new Exception("Value was null");
@@ -62,7 +62,7 @@ namespace ObjKaleidoscope.Semantics
         /// Checks that the type-or-value's value is non-null, 
         /// and then creates a set-statement.
         /// </summary>
-        public IStatement CreateSetStatement(IExpression NewValue, LocalScope Scope)
+        public IStatement CreateSetStatement(IExpression NewValue, ILocalScope Scope)
         {
             if (Value == null)
                 throw new Exception("Value was null");
@@ -73,7 +73,7 @@ namespace ObjKaleidoscope.Semantics
         /// <summary>
         /// Checks that the type is non-null, and returns it.
         /// </summary>
-        public IType CheckType(LocalScope Scope)
+        public IType CheckType(ILocalScope Scope)
         {
             if (Type == null)
                 throw new Exception("Type was null");

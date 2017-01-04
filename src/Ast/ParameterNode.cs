@@ -32,7 +32,7 @@ namespace ObjKaleidoscope.Ast
         /// Creates an IR parameter specification for this
         /// parameter declaration.
         /// </summary>
-        public IParameter ToParameter(LocalScope Scope)
+        public IParameter ToParameter(ILocalScope Scope)
         {
             return new DescribedParameter(
                 Identifier.Contents, 

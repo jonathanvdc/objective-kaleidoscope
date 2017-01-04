@@ -21,7 +21,7 @@ namespace ObjKaleidoscope.Ast
         public Token Value { get; private set; }
 
         /// <inheritdoc/>
-        public TypeOrValue Analyze(LocalScope Scope)
+        public TypeOrValue Analyze(ILocalScope Scope)
         {
             int result;
             if (!int.TryParse(Value.Contents, out result))

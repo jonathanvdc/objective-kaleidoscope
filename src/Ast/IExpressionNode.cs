@@ -18,7 +18,7 @@ namespace ObjKaleidoscope.Ast
         /// <returns>
         /// A Flame IR type or a value.
         /// </returns>
-        TypeOrValue Analyze(LocalScope Scope);
+        TypeOrValue Analyze(ILocalScope Scope);
     }
 }
 

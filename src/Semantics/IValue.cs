@@ -13,7 +13,7 @@ namespace ObjKaleidoscope.Semantics
         /// </summary>
         /// <returns>An IR expression that retrieves a value.</returns>
         /// <param name="Scope">The local scope.</param>
-        IExpression CreateGetExpression(LocalScope Scope);
+        IExpression CreateGetExpression(ILocalScope Scope);
 
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace ObjKaleidoscope.Semantics
         /// <returns>An IR statement that performs a store.</returns>
         /// <param name="Value">The value to store in this storage location.</param>
         /// <param name="Scope">The local scope.</param>
-        IStatement CreateSetStatement(IExpression Value, LocalScope Scope);
+        IStatement CreateSetStatement(IExpression Value, ILocalScope Scope);
     }
 }
 

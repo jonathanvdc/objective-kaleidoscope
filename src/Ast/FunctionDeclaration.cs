@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 namespace ObjKaleidoscope.Ast
 {
-    public sealed class FunctionNode
+    /// <summary>
+    /// Represents a function declaration AST node.
+    /// </summary>
+    public sealed class FunctionDeclaration
     {
-        public FunctionNode(
+        public FunctionDeclaration(
             Token Identifier,
             IReadOnlyList<ParameterNode> Parameters,
             IExpressionNode Body)
