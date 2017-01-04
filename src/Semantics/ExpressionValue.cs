@@ -7,7 +7,7 @@ namespace ObjKaleidoscope.Semantics
     /// A simple value implementation that wraps a 
     /// simple get-expression.
     /// </summary>
-    public class ExpressionValue : IValue
+    public sealed class ExpressionValue : IValue
     {
         public ExpressionValue(IExpression GetExpression)
         {

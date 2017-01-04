@@ -3,7 +3,7 @@ using System.IO;
 
 namespace ObjKaleidoscope
 {
-    public class Lexer
+    public sealed class Lexer
     {
         public Lexer(string Source)
         {

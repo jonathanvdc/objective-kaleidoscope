@@ -7,7 +7,7 @@ namespace ObjKaleidoscope.Ast
     /// <summary>
     /// An integer literal AST node.
     /// </summary>
-    public class IntLiteral : IExpressionNode
+    public sealed class IntLiteral : IExpressionNode
     {
         public IntLiteral(Token Value)
         {

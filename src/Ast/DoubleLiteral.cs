@@ -7,7 +7,7 @@ namespace ObjKaleidoscope.Ast
     /// <summary>
     /// A double literal AST node.
     /// </summary>
-    public class DoubleLiteral : IExpressionNode
+    public sealed class DoubleLiteral : IExpressionNode
     {
         public DoubleLiteral(Token Value)
         {
