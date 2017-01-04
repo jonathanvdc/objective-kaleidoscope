@@ -146,6 +146,7 @@
     <Compile Include="Semantics\ILocalScope.cs" />
     <Compile Include="Ast\FunctionDeclaration.cs" />
     <Compile Include="Semantics\LocalDeclarationScope.cs" />
+    <Compile Include="Ast\IdentifierReference.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
