@@ -31,7 +31,7 @@ namespace ObjKaleidoscope.Ast
 
             // Wrap the integer in an expression, and create a 
             // TypeOrValue instance from that.
-            return new TypeOrValue(new Int32Expression(result));
+            return new TypeOrValue(new IntegerExpression(result));
         }
     }
 }
