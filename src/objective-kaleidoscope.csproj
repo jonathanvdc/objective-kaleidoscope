@@ -139,12 +139,13 @@
     <Compile Include="Ast\IExpressionNode.cs" />
     <Compile Include="Ast\ParameterNode.cs" />
     <Compile Include="Ast\FunctionNode.cs" />
-    <Compile Include="Semantics\LocalScope.cs" />
     <Compile Include="Semantics\IValue.cs" />
     <Compile Include="Semantics\TypeOrValue.cs" />
     <Compile Include="Ast\IntLiteral.cs" />
     <Compile Include="Semantics\ExpressionValue.cs" />
     <Compile Include="Ast\DoubleLiteral.cs" />
+    <Compile Include="Semantics\ILocalScope.cs" />
+    <Compile Include="Semantics\LocalDeclScope.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
